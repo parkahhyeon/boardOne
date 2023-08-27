@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring.config.use-legacy-processing: true
+
+---
+spring.profiles: loc
+
+spring:
+  profiles:
+    include:
+      - console-logging
+      - low-level-logging
+---
+spring.profiles: dev
+
+spring:
+  profiles:
+    include:
+      - file-logging
+      - low-level-logging
+
+---
+spring.profiles: stg
+
+spring:
+  profiles:
+    include:
+      - file-logging
+      - high-level-logging
+
+---
+spring.profiles: prd
+
+spring:
+  profiles:
+    include:
+      - message-logging
+      - file-logging
+      - high-level-logging
